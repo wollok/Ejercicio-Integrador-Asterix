@@ -1,20 +1,20 @@
-/**
- * This is an example wollok hello world
- */
-
 class Pocion{
 	var ingredientes = []
 	
-	method esTomada(galo) {
-		ingredientes.forEach{ing=>ing.afecta(galo)}
+	method esTomadaPor(alguien) {
+		ingredientes.forEach{ing=>ing.afectar(alguien)}
+	}
+	method agregarIngrediente(ingrediente) {
+		ingredientes.add(ingrediente)
 	}
 }
 
 object dulceDeLeche{
 	
-	method afecta(alguien) {
+	method afectar(alguien) {
 		alguien.aumentaFuerza(10)
-		alguien.alteraResistencia()
+		if (alguien.fueraCombate()) 
+			alguien.revivir()
 	}
 }
 
@@ -25,8 +25,8 @@ class Aceite {
 		dosis = d
 	}
 	
-	method afecta(alguien) {
-		alguien.multiplicaFueza(dosis)
+	method afectar(alguien) {
+		alguien.ponderaFuerza(dosis)
 	}
 }
 
@@ -34,21 +34,34 @@ class Zumo inherits Aceite {
 	
 	constructor(d) = super(d)
 	
-	override method afecta(alguien){
+	override method afectar(alguien){
 		super(alguien)
-		alguien.aumentaResistencia()
+		alguien.aumentaResistencia(1)
 	}
 }
 
+class Manojo {
+	var tamanio
+	
+	constructor(t){
+		tamanio = t
+	}
+	
+	method afectar(alguien){
+		alguien.aumentaFuerza(tamanio)
+		if (tamanio>5) 
+			alguien.ponderaResistencia(0.5)
+	}
+}
 
-class Peleador {
+class Combatiente {
 	method pelear(otro){
 		otro.recibir(self.poder())
 	}
 	method poder()
 }
 
-class Galo inherits Peleador{
+class Persona inherits Combatiente{
 	var fuerza
 	var resistencia
 	
@@ -57,6 +70,9 @@ class Galo inherits Peleador{
 		resistencia = r
 	}
 	
+	method tomar(pocion) {
+		pocion.esTomadaPor(self)
+	}
 	override method poder(){
 		return fuerza * resistencia
 	}
@@ -67,9 +83,24 @@ class Galo inherits Peleador{
 	method fueraCombate() {
 		return resistencia == 0
 	}
+	method aumentaFuerza(cant) {
+		fuerza += cant
+	}
+	method ponderaFuerza(mult) {
+		fuerza *= mult
+	}
+	method aumentaResistencia(cant) {
+		resistencia += cant
+	}
+	method ponderaResistencia(mult) {
+		resistencia *= mult
+	}
+	method revivir(){
+		resistencia = 2
+	}
 }
 
-class Grupo inherits Peleador{
+class Grupo inherits Combatiente{
 	var integrantes = []
 	
 	override method poder(){
