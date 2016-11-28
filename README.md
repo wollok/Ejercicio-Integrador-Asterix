@@ -1,6 +1,6 @@
 # Astérix el galo
 
-##Ejercicio integrador, tipo parcial
+##Ejercicio integrador
 
 **Estamos en el año 50 antes de Jesucristo. Toda la Galia está ocupada por los romanos. ¿Toda? ¡No! Una aldea poblada por irreductibles galos resiste todavía y siempre al invasor…**
 
