@@ -1,4 +1,6 @@
 import asterix.*
+import pociones.*
+import combatientes.*
 
 object fixture{
 	
