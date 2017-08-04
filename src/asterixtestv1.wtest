@@ -1,24 +1,42 @@
-import asterixv1.*
+//para Version 1
+//import asterixv1.*
+//para Version 2
+import asterixv2.*
+
 import pociones.*
 import combatientes.*
-import fixture.*
+
+describe "Tests" {
+	var asterix = new Persona(10,10)
+	var pocion = self.crearPocionMagica()
+	var pocionReforzada = self.crearPocionMagicaReforzada()
+
+	method crearPocionMagica(){
+		const p = new Pocion()
+		p.agregarIngrediente(dulceDeLeche)
+		p.agregarIngrediente(new Manojo(5))
+		p.agregarIngrediente(new Aceite(2))
+		return p
+	}
+	method crearPocionMagicaReforzada(){
+		const p = self.crearPocionMagica()
+		p.agregarIngrediente(new Zumo(2))
+		return p
+	}
 
 test "Asterix tiene poder 10" {
-	var asterix = fixture.crearAsterix()
 	assert.equals(100,asterix.poder())
 }
 
 test "Asterix toma pocion magica y tiene poder 500" {
-	var asterix = fixture.crearAsterix()
-	var pocionMagica = fixture.crearPocionMagica()
-	asterix.tomar(pocionMagica)
+	asterix.tomar(pocion)
 	assert.equals(500, asterix.poder())
 }
 
 test "Asterix toma pocion magica reforzada y tiene poder 1100" {
-	var asterix = fixture.crearAsterix()
-	var pocion = fixture.crearPocionMagicaReforzada()
-	asterix.tomar(pocion)
+	asterix.tomar(pocionReforzada)
 	assert.equals(1100, asterix.poder())
+
+}
 
 }
