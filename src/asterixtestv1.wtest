@@ -7,7 +7,7 @@ import pociones.*
 import combatientes.*
 
 describe "Tests" {
-	var asterix = new Persona(10,10)
+	var asterix = new Persona(fuerza=10, resistencia=10)
 	var pocion = self.crearPocionMagica()
 	var pocionReforzada = self.crearPocionMagicaReforzada()
 

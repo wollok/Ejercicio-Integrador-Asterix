@@ -1,5 +1,7 @@
+import combatientes.*
+
 class Pocion{
-	var ingredientes = []
+	var ingredientes = [] 
 	
 	method esTomadaPor(alguien) {
 		ingredientes.forEach{ing=>ing.afectar(alguien)}

@@ -1,18 +1,18 @@
 import combatientes.*
 
 class Grupo inherits Combatiente{
-	var integrantes = []
+	var integrantes = [] 
 	
 	override method poder(){
 		return integrantes.filter{int=>not int.fueraCombate()}
 			.sum{int=>int.poder()}
-	}
-	method recibir(danio){
+	} 
+	override method recibir(danio){
 		self.repartirDanio(danio)
 	}
-	
+	 
 	method repartirDanio(danio){
-		var individual = danio/integrantes.size()
+		var individual =  danio/integrantes.size()
 		integrantes.forEach{int=>int.recibir(individual)}
 	}
 }

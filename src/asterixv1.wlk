@@ -1,13 +1,13 @@
 import combatientes.*
 
 class Grupo inherits Combatiente{
-	var integrantes = []
+	var integrantes = []  
 	
 	override method poder(){
 		return integrantes.filter{int=>not int.fueraCombate()}
 			.sum{int=>int.poder()}
 	}
-	method recibir(danio){
+	override method recibir(danio){
 		self.repartirDanio(danio)
 	}
 	
@@ -18,7 +18,7 @@ class Grupo inherits Combatiente{
 	}
 }
 class Legion inherits Grupo {
-	var formacion = cuadro
+	var property formacion = cuadro
 	const minimo = 10
 	
 	override method poder(){
@@ -28,9 +28,6 @@ class Legion inherits Grupo {
 		formacion.recibir(danio,self)
 		if(self.poder()<minimo)
 			self.formacion(tortuga)
-	}
-	method formacion(f){
-		formacion = f
 	}
 	method repartirDanioMitad(danio){
 		integrantes.take(integrantes.size().div(2))

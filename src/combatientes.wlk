@@ -1,18 +1,16 @@
+//import pociones.*
+
 class Combatiente {
 	method pelear(otro){
-		otro.recibir(self.poder())
+		otro.recibir(self.poder()) 
 	}
 	method poder()
-}
+	method recibir(algo)
+} 
 
 class Persona inherits Combatiente{
 	var fuerza
 	var resistencia
-	
-	constructor(f, r){
-		fuerza = f
-		resistencia = r
-	}
 	
 	method tomar(pocion) {
 		pocion.esTomadaPor(self)
@@ -20,7 +18,7 @@ class Persona inherits Combatiente{
 	override method poder(){
 		return fuerza * resistencia
 	}
-	method recibir(danio) {
+	override method recibir(danio) {
 		resistencia -= danio
 		resistencia = resistencia.max(0)
 	}
