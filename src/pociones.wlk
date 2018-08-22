@@ -1,7 +1,7 @@
 import combatientes.*
 
 class Pocion{
-	var ingredientes = [] 
+	var ingredientes = []
 	
 	method esTomadaPor(alguien) {
 		ingredientes.forEach{ing=>ing.afectar(alguien)}
@@ -23,10 +23,6 @@ object dulceDeLeche{
 class Aceite {
 	var dosis
 	
-	constructor(d){
-		dosis = d
-	}
-	
 	method afectar(alguien) {
 		alguien.ponderaFuerza(dosis)
 	}
@@ -34,8 +30,7 @@ class Aceite {
 
 class Zumo inherits Aceite {
 	
-	constructor(d) = super(d)
-	
+
 	override method afectar(alguien){
 		super(alguien)
 		alguien.aumentaResistencia(1)
@@ -44,10 +39,6 @@ class Zumo inherits Aceite {
 
 class Manojo {
 	var tamanio
-	
-	constructor(t){
-		tamanio = t
-	}
 	
 	method afectar(alguien){
 		alguien.aumentaFuerza(tamanio)

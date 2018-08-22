@@ -1,7 +1,7 @@
 //para Version 1
-//import asterixv1.*
+import asterixv1.*
 //para Version 2
-import asterixv2.*
+//import asterixv2.*
 
 import pociones.*
 import combatientes.*
@@ -14,13 +14,13 @@ describe "Tests" {
 	method crearPocionMagica(){
 		const p = new Pocion()
 		p.agregarIngrediente(dulceDeLeche)
-		p.agregarIngrediente(new Manojo(5))
-		p.agregarIngrediente(new Aceite(2))
+		p.agregarIngrediente(new Manojo(tamanio = 5))
+		p.agregarIngrediente(new Aceite(dosis = 2))
 		return p
 	}
 	method crearPocionMagicaReforzada(){
 		const p = self.crearPocionMagica()
-		p.agregarIngrediente(new Zumo(2))
+		p.agregarIngrediente(new Zumo(dosis = 2))
 		return p
 	}
 

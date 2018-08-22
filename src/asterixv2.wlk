@@ -17,7 +17,7 @@ class Grupo inherits Combatiente{
 	}
 }
 class CampamentoFortificado inherits Grupo {
-	var formacion = cuadro
+	var property formacion = cuadro
 	
 	override method poder(){
 		return formacion.poder(super())
@@ -25,9 +25,7 @@ class CampamentoFortificado inherits Grupo {
 	override method recibir(danio){
 		formacion.recibir(danio,self)
 	}
-	method formacion(f){
-		formacion = f
-	}
+	
 }
 
 object tortuga{

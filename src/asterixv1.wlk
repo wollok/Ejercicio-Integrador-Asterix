@@ -37,7 +37,7 @@ class Legion inherits Grupo {
 
 object tortuga{
 	method poder(poder) {
-		return 0
+		return 0 
 	}
 	method recibir(danio, legion){}
 }
