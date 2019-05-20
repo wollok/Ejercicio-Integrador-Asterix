@@ -1,4 +1,7 @@
 # Astérix el galo
+ 
+[![Build Status](https://travis-ci.org/wollok/ejercicioIntegradorAsterix.svg?branch=master)](https://travis-ci.org/wollok/ejercicioIntegradorAsterix)
+
 
 ## Ejercicio integrador
 
