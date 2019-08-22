@@ -1,4 +1,4 @@
-//import pociones.*
+import pociones.*
 
 class Combatiente {
 	method pelear(otro){

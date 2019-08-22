@@ -12,7 +12,7 @@ class Grupo inherits Combatiente{
 	}
 	 
 	method repartirDanio(danio){
-		var individual =  danio/integrantes.size()
+		var individual = danio/integrantes.size()
 		integrantes.forEach{int=>int.recibir(individual)}
 	}
 }
